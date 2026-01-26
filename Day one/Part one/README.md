@@ -4,10 +4,8 @@
 <h1 align="center">C# & .NET Fundamentals</h1>
 <p align="center"><em>Study Notes</em></p>
 
-<p align="center">
-  Structured notes explaining <strong>C# and .NET fundamentals</strong>,<br/>
-  based on lectures and handwritten study material.
-</p>
+> Clean, structured notes explaining **C# and .NET fundamentals**,  
+> based on lectures and handwritten study material.
 
 ---
 
