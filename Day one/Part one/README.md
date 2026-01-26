@@ -34,9 +34,6 @@ This repository includes a clean technical explanation covering:
 </p>
 
 ---
-
-## 👨‍💻 About Me
-
 <p align="center">
   <strong>Abdalla Samir</strong><br/>
   Software Engineering Student
