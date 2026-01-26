@@ -8,13 +8,11 @@
 </p
   
 <p align="center">
-  <small>
+
     Clean, structured notes explaining <strong>C# and .NET fundamentals</strong>,<br/>
     based on lectures and handwritten study material.
-  </small>
-</p>
 
->
+</p>
 
 
 
