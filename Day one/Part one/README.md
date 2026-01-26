@@ -9,7 +9,7 @@
   
 <p align="center">
 
-    Clean, structured notes explaining <strong>C# and .NET fundamentals
+    Clean, structured notes explaining 
     based on lectures and handwritten study material.
 
 </p>
