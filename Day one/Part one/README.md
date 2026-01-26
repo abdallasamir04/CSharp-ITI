@@ -2,12 +2,11 @@
   <img src="https://raw.githubusercontent.com/github/explore/main/topics/csharp/csharp.png" width="64" />
 </p>
 <h1 align="center">C# & .NET Fundamentals</h1>
-<p align="center"><em>Structured Study Notes</em></p>
+<p align="center"><em>Study Notes</em></p>
 
 <p align="center">
-  A concise and well-organized reference for understanding<br/>
-  <strong>C# and the .NET platform</strong>, based on lecture content<br/>
-  and handwritten study materials.
+  Structured notes explaining <strong>C# and .NET fundamentals</strong>,<br/>
+  based on lectures and handwritten study material.
 </p>
 
 ---
