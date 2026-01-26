@@ -2,8 +2,8 @@
   <img src="https://raw.githubusercontent.com/github/explore/main/topics/csharp/csharp.png" width="64" />
 </p>
 <h1 align="center">C# & .NET Fundamentals</h1>
-<p align="center"><em>Study Notes</em></p>
 
+> <h1 align="center">Study Notes</h1>
 > Clean, structured notes explaining **C# and .NET fundamentals**,  
 > based on lectures and handwritten study material.
 
