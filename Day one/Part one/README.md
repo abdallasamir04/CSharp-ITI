@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/github/explore/main/topics/csharp/csharp.png" width="64" />
 </p>
-<h1 align="center">C# & .NET Fundamentals</h1>
+<h1 align="center">C# & .NET Fundamentals - Part 1</h1>
 
 <p align="center">
   Study Notes
