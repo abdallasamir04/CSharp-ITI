@@ -1,0 +1,397 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day_1_C__ITII
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region Basics Input Output 
+            {
+                // EXPLANATION:
+                // This section handles basic I/O operations.
+                // - Console.ReadLine(): Reads input as a string.
+                // - int.Parse(): Converts string input to an integer.
+                // - Interpolation ($""): Allows embedding variables directly into strings.
+                // - Escape Characters: Special symbols like \n (new line) used within strings.
+
+                Console.WriteLine("Enter your name : ");
+                string name = Console.ReadLine();
+
+                Console.WriteLine("Enter your Age : ");
+                string ageInput = Console.ReadLine();
+                int age = int.Parse(ageInput);
+                int newAge = age + 10;
+
+                Console.WriteLine($"Your name is : {name}, \n Your age in 10 years is {newAge}");
+            }
+            #endregion
+
+            #region Verbatim String Literal
+            {
+                // EXPLANATION:
+                // The @ symbol before a string creates a "Verbatim String".
+                // It tells the compiler to ignore Escape Characters (like \n or \t) and treat them as literal text.
+                // Commonly used for file paths or printing text exactly as written.
+
+                // Note: 'name' and 'newAge' are placeholders here to demonstrate the syntax.
+                Console.WriteLine(@"Your name is : {name}, \n Your age is {new_age}");
+            }
+            #endregion
+
+            #region Binary Operators
+            {
+                // EXPLANATION:
+                // Binary operators perform arithmetic operations between two operands.
+                // Examples: + (Add), - (Subtract), * (Multiply), / (Divide), % (Modulus).
+
+                int num1 = 1;
+                int num2 = 2;
+
+                int result = num1 + num2;
+
+                Console.WriteLine($"The Result is : {result}");
+            }
+            #endregion
+
+            #region Unary Operators 
+            {
+                // EXPLANATION:
+                // Unary operators work on a single operand.
+                // - Prefix (++x): Increments the value first, then uses it.
+                // - Postfix (y++): Uses the current value first, then increments it.
+
+                int x = 10;
+                int y = 10;
+
+                Console.WriteLine($" Prefix = {++x}, Postfix = {y++}");
+                Console.WriteLine($" Value after operation: x = {x}, y = {y}");
+            }
+            #endregion
+
+            #region Compound Operators 
+            {
+                // EXPLANATION:
+                // Compound assignment operators combine an arithmetic operation with assignment.
+                // x += 10 is shorthand for x = x + 10.
+
+                int x = 10;
+                x += 10; 
+
+                Console.WriteLine(x);
+            }
+            #endregion
+
+            #region Comparison Operators 
+            {
+                // EXPLANATION:
+                // These operators compare two values and return a Boolean (True/False).
+                // > (Greater than), < (Less than), >= (Greater or Equal), <= (Less or Equal).
+
+                int x = 10;
+                int y = 15;
+
+                Console.WriteLine(x > y);
+                Console.WriteLine(y > x);
+                Console.WriteLine(y >= x);
+                Console.WriteLine(y <= x);
+            }
+            #endregion
+
+            #region And / Or (Logical Operators)
+            {
+                // EXPLANATION:
+                // Used to combine multiple boolean conditions.
+                // && (AND): Returns True only if ALL conditions are true.
+                // || (OR): Returns True if AT LEAST ONE condition is true.
+                // Short Circuiting: 
+                // - && stops checking if the first condition is False.
+                // - || stops checking if the first condition is True.
+
+                int x = 10;
+                int y = 20;
+                int z = 30;
+
+                Console.WriteLine(x > y || y > x);      // True because y > x is true
+                Console.WriteLine(x < z && y < ++x);    // Evaluates both
+
+                Console.WriteLine($"X after prefix operation : {x}");
+            }
+            #endregion
+
+            #region Control Flow (If, Else, Switch)
+            {
+                // EXPLANATION:
+                // Control Flow directs the program execution based on conditions.
+                // 1. If-Else: Checks conditions sequentially.
+                // 2. Nested If: An If statement inside another If statement.
+                // 3. Switch: Selects a code block based on the value of a variable.
+
+                // --- Part 1: If / Else / Nested If ---
+                Console.WriteLine("Enter Your name : ");
+                string str = Console.ReadLine();
+
+                if (str == "")
+                {
+                    Console.WriteLine("Re-enter the name Please.");
+                }
+                else
+                {
+                    if (str.Length < 5)
+                    {
+                        Console.WriteLine("Invalid name, length is too short.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Your name is {str}");
+                    }
+                }
+
+                // --- Part 2: Else If with Validation ---
+                Console.WriteLine("Enter your degree : ");
+                string strGrade = Console.ReadLine();
+                int grade = int.Parse(strGrade);
+
+                // Validation logic: Ensure grade is within 0-100 range first
+                if (grade > 100 || grade < 0)
+                {
+                    Console.WriteLine("Invalid Input"); 
+                }
+                else if (grade >= 85)
+                {
+                    Console.WriteLine("A");
+                }
+                else if (grade >= 75)
+                {
+                    Console.WriteLine("B");
+                }
+                else if (grade >= 65)
+                {
+                    Console.WriteLine("C");
+                }
+                else if (grade >= 60)
+                {
+                    Console.WriteLine("D");
+                }
+                else
+                {
+                    Console.WriteLine("Fail");
+                }
+
+                // --- Part 3: Switch Statement ---
+                Console.WriteLine("Enter your job : ");
+                string job = Console.ReadLine();
+
+                switch (job)
+                {
+                    case "Doctor":
+                        Console.WriteLine("You have patients.");
+                        break;
+                    case "Developer":
+                        Console.WriteLine("Do your coding work.");
+                        break;
+                    case "Player":
+                        Console.WriteLine("Do your exercises.");
+                        break;
+                    default:
+                        Console.WriteLine("Job not found, please enter a valid job.");
+                        break;
+                }
+            }
+            #endregion
+
+            #region Loops 
+            {
+                // EXPLANATION:
+                // Loops allow code to be repeated multiple times.
+                // 1. For Loop: Best when the number of iterations is known (Start, Condition, Step).
+                // 2. Do-While: Executes the code AT LEAST once, then checks the condition.
+                // 3. While: Checks the condition first. If false, code never runs.
+
+                // --- 1. For Loop ---
+                Console.WriteLine("Enter Your name for loop : ");
+                string name = Console.ReadLine();
+
+                for (int i = 0; i < name.Length; i++)
+                {
+                    Console.WriteLine("*");
+                }
+
+                // --- 2. Do-While Loop (Exit on 0) ---
+                // Stores the last valid input before exiting
+                int x;
+                int lastAge = 0;
+                do
+                {
+                    Console.WriteLine("Enter Age (Press 0 To Exit):");
+                    x = int.Parse(Console.ReadLine());
+
+                    if (x != 0)
+                    {
+                        lastAge = x;
+                        Console.WriteLine($"The Last age input is: {lastAge}");
+                    }
+
+                } while (x != 0);
+
+                Console.WriteLine($"Final recorded age: {lastAge}");
+
+
+                // --- 3. While Loop (Summation with Limit) ---
+                // Logic: Sum numbers but prevent the total from exceeding 100.
+                int currentSum = 0;
+
+                Console.WriteLine("Enter numbers to add (Max total 100):");
+                while (currentSum < 100)
+                {
+                    int input = int.Parse(Console.ReadLine());
+
+                    if (input <= (100 - currentSum))
+                    {
+                        currentSum += input;
+                    }
+                    else
+                    {
+                        Console.WriteLine("The number you entered exceeds the limit of 100. Try a smaller number.");
+                    }
+
+                    Console.WriteLine($"Current Result is: {currentSum}");
+                }
+            }
+            #endregion
+
+            #region Functions 
+            {
+                // EXPLANATION:
+                // Functions (Methods) are reusable blocks of code.
+                // Below are examples of Local Functions defined inside Main.
+                
+                // 1. Void (No Return), No Parameters
+                void WelcomeUser()
+                {
+                    Console.WriteLine("Welcome In Our Platform.");
+                }
+                WelcomeUser(); // Calling the function
+
+                // 2. Void (No Return), With Parameters
+                void WelcomeTrack(string trackName)
+                {
+                    Console.WriteLine($"Welcome in our {trackName} Track");
+                }
+                
+                Console.WriteLine("Enter Your Track : ");
+                string trackInput = Console.ReadLine();
+                WelcomeTrack(trackInput);
+
+                // 3. With Return Type, No Parameters
+                int GetStringLength()
+                {
+                    Console.WriteLine("Enter String to count: ");
+                    string s = Console.ReadLine();
+                    return s.Length;
+                }
+                int length = GetStringLength();
+                Console.WriteLine($"The String length is : {length}.");
+
+                // 4. With Return Type, With Parameters
+                int CountWords(string text)
+                {
+                    string[] words = text.Split(' ');
+                    return words.Length;
+                }
+
+                Console.WriteLine("Enter a sentence to count words: ");
+                string line = Console.ReadLine();
+                int wordCount = CountWords(line);
+                Console.WriteLine($"Number of words: {wordCount}");
+            }
+            #endregion
+
+            #region Lab 1 
+            {
+                // EXPLANATION:
+                // This section contains practical exercises involving precedence order, logic, and validation.
+
+                // --- Problem 1: Simple Sum ---
+                Console.WriteLine("Enter Two Numbers for Sum:");
+                int numA = int.Parse(Console.ReadLine());
+                int numB = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Sum: {numA + numB}");
+
+                // --- Problem 2: Operator Precedence ---
+                Console.WriteLine(-1 + 4 * 60);             // Multiplication first
+                Console.WriteLine((35 + 5) % 7);            // Parentheses first, then Modulus
+                Console.WriteLine(14 + -4 * 6 / 11);        // Mult/Div left to right, then Add
+                Console.WriteLine(2 + 15 / 6 * 1 - 7 % 2);  // Mixed precedence
+
+                int valX = 10;
+                int valZ = (valX++) + valX; // Post-increment affects the second usage of x
+                Console.WriteLine(valZ);
+
+                // --- Problem 3: Logical Expressions ---
+                int a = 10, b = 20, c = 30;
+                Console.WriteLine(a < b || b > c);
+                Console.WriteLine(a < b && b > c);
+                Console.WriteLine(a <= b || b < c && c > b);
+                Console.WriteLine(a == b || b > c && c > b);
+                Console.WriteLine(a != b || c == c && c > b);
+
+                // --- Date Validation Function ---
+                // Validates Day, Month, Year and checks for Leap Years.
+                void ValidateDate(int day, int month, int year)
+                {
+                    if ((day > 0 && day <= 31) && (month > 0 && month <= 12) && (year >= 2000 && year <= 2024))
+                    {
+                        // Months with 30 days
+                        if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+                        {
+                            Console.WriteLine("Invalid Date (Maximum days in this month is 30)");
+                        }
+                        // February Validation
+                        else if (month == 2)
+                        {
+                            bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+                            
+                            if (day > 29)
+                            {
+                                Console.WriteLine("Invalid Date (February never has more than 29 days)");
+                            }
+                            else if (day == 29 && !isLeap)
+                            {
+                                Console.WriteLine("Invalid Date (Not a leap year, max is 28)");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Valid Date.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Valid Date.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Date (Out of range)");
+                    }
+                }
+
+                Console.WriteLine("Please enter year (2000-2024):");
+                int userYear = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Please enter month:");
+                int userMonth = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Please enter day:");
+                int userDay = int.Parse(Console.ReadLine());
+
+                ValidateDate(userDay, userMonth, userYear);
+            }
+            #endregion
+        }
+    }
+}
