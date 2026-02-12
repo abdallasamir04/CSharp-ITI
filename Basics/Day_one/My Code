@@ -1,0 +1,645 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day_1_C__ITII
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region basics input output 
+
+            Console.WriteLine("Enter your name : ");
+
+            String name = Console.ReadLine();
+
+            Console.WriteLine("Enter your Age : ");
+
+            string Age = Console.ReadLine();
+            int age = int.Parse(Age);
+            int new_age = age + 10;
+
+            Console.WriteLine($"Your name is : {name}, \n Your age is {new_age}");
+            // That's known as " Inter Polatation " -- all in one 
+
+            Escape Characters
+            : 1) \n     2)\t     3)\b     4)\\    5) " \""  "     6) " \'   '   "
+
+
+
+
+            #endregion
+
+        #region Verbatime String Literal
+        /* Verbatime String Literal :  
+
+        symbol : @  besfor the "" like $ at the polatition 
+
+
+        Console.WriteLine(@"Your name is : {name}, \n Your age is {new_age}");
+
+         */
+
+             Example:
+            Console.WriteLine(@"Your name is : {name}, \n Your age is {new_age}");
+
+            #endregion
+
+            #region Binary Operators : 
+
+            int num = 1;
+            int num_2 = 2;
+
+            int result = num + num_2;
+
+            Console.WriteLine($"TheReslt is : {result}");
+
+
+
+
+            #endregion
+
+            #region unary operators 
+
+            int x = 10;
+
+            int y = 10;
+
+            Console.WriteLine($" Prefix = {++x}, Postfix = {y++}");
+
+            Console.WriteLine($" Prefix = {++x}, Postfix = {y}");
+
+
+            #endregion
+
+            #region compound operators 
+
+            // +=, -= , *= , /= , %= 
+
+            int x = 10;
+            // x = x + 10; = x += 10; 
+
+
+            x += 10;
+
+            Console.WriteLine(x);
+
+            #endregion
+
+            #region comaprison operators 
+
+            // The output is True or False 
+            // it's a boolean 
+
+            int x = 10;
+            int y = 15;
+
+            Console.WriteLine(x > y);
+            Console.WriteLine(y > x);
+            Console.WriteLine(y >= x);
+            Console.WriteLine(y <= x);
+
+
+
+
+
+
+            #endregion
+
+            #region and  or 
+            Comaprison also but combine more than one condition together
+
+           && --> only True: When the all conditions are true
+           || only true : at least one operation is true
+
+                           -- - Short Circuit--
+
+           && --> evaluates until the fisrst falsy value-- لازم كله true
+
+           || --> evaluates until the first trure value-- عالأقل واحدة True
+
+
+            int x = 10;
+            int y = 20;
+            int z = 30;
+
+            Console.WriteLine(x > y || y > x);
+            Console.WriteLine(x < z && y < ++x);
+
+
+            Console.WriteLine($"This is the X after Prefix : {x}");
+            Console.WriteLine(x < z && y > ++x);
+            Console.WriteLine($"This is the X after Prefix : {x}");
+
+
+
+            #endregion
+
+            #region  Control Flow  
+
+            1) IF    2)If else 3)Nested if    4) If else if
+
+
+
+
+            //1) IF    2)If else
+            Console.WriteLine("Enter Your name : ");
+            string str = Console.ReadLine();
+
+            if (str == "")
+            {
+                Console.WriteLine(" RE Entrer the name Please .");
+
+            }
+            else
+            {
+                Console.WriteLine($"Your name is  {str}");
+            }
+
+
+            3)Nested if
+
+
+            if (str == "")
+                {
+                    Console.WriteLine(" RE Entrer the name Please .");
+
+                }
+                else
+                {
+                    if (str.Length < 5)
+                    {
+                        Console.WriteLine(" Invalid name , Please enter again .");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Your name is  {str}");
+                    }
+                }
+
+            4) eLSE IF : 
+
+            Console.WriteLine("Enter you degree : ");
+            String str = Console.ReadLine();
+
+
+            int grade = int.Parse(str);
+
+
+            //// We haven't put a validation 
+            //if (grade<=100&&grade>=85)
+            //{
+            //    Console.WriteLine("A");
+            //}else if (grade < 85 && grade >= 75)
+            //{
+            //    Console.WriteLine("B");
+            //}
+            //else if (grade < 75 && grade >= 65)
+            //{
+            //    Console.WriteLine("C");
+
+            //}
+            //else if (grade < 65 && grade >= 60)
+            //{
+            //    Console.WriteLine("D");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Fail");
+            //}
+
+
+
+
+            //// With validation 
+
+            //if (grade > 100 || grade <0)  // OR not And (Take care )
+            //{
+            //    Console.WriteLine("Invalid Input"); // Validation condition to not entter the the conditions 
+            //}
+            //else if (grade <= 100 && grade >= 85)
+            //{
+            //    Console.WriteLine("A");
+            //}
+            //else if (grade < 85 && grade >= 75)
+            //{
+            //    Console.WriteLine("B");
+            //}
+            //else if (grade < 75 && grade >= 65)
+            //{
+            //    Console.WriteLine("C");
+
+            //}
+            //else if (grade < 65 && grade >= 60)
+            //{
+            //    Console.WriteLine("D");
+            //}
+            //else
+            //{
+
+            //    Console.WriteLine("Fail");
+            //}
+
+
+            // things not need :
+
+            // With validation 
+
+            if (grade > 100 || grade < 0)  // OR not And (Take care )
+            {
+                Console.WriteLine("Invalid Input"); // Validation condition to not entter the the conditions 
+            }
+            else if (grade >= 85)
+            {
+                Console.WriteLine("A");
+            }
+            else if (grade >= 75)
+            {
+                Console.WriteLine("B");
+            }
+            else if (grade >= 65)
+            {
+                Console.WriteLine("C");
+
+            }
+            else if (grade >= 60)
+            {
+                Console.WriteLine("D");
+            }
+            else
+            {
+
+                Console.WriteLine("Fail");
+            }
+
+
+
+
+
+            // 5)Switch : 
+
+            Console.WriteLine("Enter you job : ");
+            String job = Console.ReadLine();
+
+            switch (job)
+            {
+                case "Doctor":
+                    Console.WriteLine("You have a patients");
+                    break;
+                case "Developer":
+                    Console.WriteLine("Do your work");
+                    break;
+                case "Player":
+                    Console.WriteLine("Do your Excercises. ");
+                    break;
+                default:
+                    Console.WriteLine("Your job not found please Enter your job .");
+                    break;
+            }
+
+
+            #endregion
+
+            #region Loops 
+
+            1) For(iterator initiallization, Condition, Increment)
+            1) For(iterator initiallization, Condition, decrement)
+            1) For(iterator initiallization, Condition, Update)
+
+            Console.WriteLine("Enter Your name : ");
+            string name = Console.ReadLine();
+
+            for (int i = 0; i < name.Length; i++)
+            {
+                Console.WriteLine("*");
+            }
+
+
+
+            2) do while --> Evaluate the condition after doing something
+
+
+
+            int age;
+            do
+            {
+                Console.WriteLine("Enter Age : \n Press 0 To Exit . ");
+                age = int.Parse(Console.ReadLine());
+
+            }
+            while (age != 0);
+
+            Console.WriteLine($"The Last age is : {age} ");
+
+
+            int age;
+
+            do
+            {
+                Console.WriteLine("Enter student Age:");
+
+                age = int.Parse(Console.ReadLine());
+
+            }
+            while (age != 0);
+
+            Console.WriteLine($"Last student age is {age}");
+
+
+
+
+
+
+
+
+            // طيب لو عاوز أخلي الرقم اللي يتعرض لو دوست 0 هو الرقم اللي قبله 
+
+            تجربة وباظت --
+
+           int new_age = default;
+
+            int Age = default;
+
+            if (new_age != 0)
+            {
+                Age = new_age;
+            }
+
+            do
+            {
+                Console.WriteLine("Enter Your age  : ");
+                string age = Console.ReadLine();
+                new_age = int.Parse(age);
+
+            }
+            while (new_age != 0);
+            if (new_age != 0)
+            {
+                Console.WriteLine($"Your age is {new_age}");
+            }
+            else
+            {
+                Console.WriteLine($"Your age is {Age}");
+
+            }
+
+            ------------------- // 
+
+           // طيب لو عاوز أخلي الرقم اللي يتعرض لو دوست 0 هو الرقم اللي قبله 
+           int x;
+            int age = default;
+            do
+            {
+                Console.WriteLine(" Enter Age : \n Press 0 To Exit .");
+                x = int.Parse(Console.ReadLine());
+
+
+                if (x != 0)
+                {
+                    age = x;
+                    Console.WriteLine($" The Last age is :{age} ");
+                }
+
+            } while (x != 0);
+
+
+            Console.WriteLine($" The Last age is :{age} ");
+
+
+
+
+            int age;
+            int last_age = default;
+
+            do
+            {
+                Console.WriteLine("Enter \n  0 to out ");
+                age = int.Parse(Console.ReadLine());
+
+
+                if (age != 0)
+                {
+                    last_age = age;
+                    Console.WriteLine($"Last = {age}");
+
+                }
+            } while (age != 0);
+
+            Console.WriteLine($"Last = {last_age}");
+
+
+            3) while --> Evaluate the condition before doing something
+
+            If I want to check id number > 100 don't enter // Is less than 100 enter and  plus with the previious 
+
+            int y = default;
+
+            while (y < 100)
+            {
+                Console.WriteLine(" Enter ");
+                int x = int.Parse(Console.ReadLine());
+                y += x;
+
+            }
+            Console.WriteLine($"The Final Result is {y}");
+
+
+
+
+            لو عاوزه ميعيديش ال 100 في الجمع ولو دخل رقم اكبر من ال100 يدخلش
+
+
+            int y = default;
+
+            while (y < 100)
+            {
+                int x = int.Parse(Console.ReadLine());
+
+                if (x <= (100 - y))
+                {
+                    y = y + x;
+                }
+                else
+                {
+                    Console.WriteLine(" The Number you try to enter will exed enter \n try to enter another one ");
+                }
+
+
+                Console.WriteLine($"The Final Result is {y}");
+            }
+
+
+            #endregion
+
+            #region Functions 
+
+
+            /*-------------------------------*/
+
+            1) Function With No Return and No Parameters:
+
+
+            void/*NoReturn*/WelcomeUser()
+            {
+                Console.WriteLine(" Welcome In Our Platform .");
+            }
+
+            WelcomeUser();
+
+
+
+
+            /*-------------------------------*/
+
+            2) Function With No Return and Parameters : 
+
+
+            void WelcomeTrack(string track)
+            {
+                Console.WriteLine($" Welcome in our {track} Track ");
+            }
+
+            Console.WriteLine("Enter Your Track : ");
+            string tracke = Console.ReadLine();
+            WelcomeTrack(tracke);
+
+
+            /*-------------------------------*/
+
+            3) Function With Return and No Parameters : 
+
+            int strCount()
+            {
+
+                Console.WriteLine("Enter String :  ");
+                string str = Console.ReadLine();
+                return str.Length;
+
+            }
+
+            int count = strCount();
+            Console.WriteLine($"The String length is : {count}. ");
+
+            /*-------------------------------*/
+
+            // 4) Function With Return and  Parameters : 
+
+            int countWords(string str)
+            {
+                string[] words = str.Split(' ');
+                return words.Length;
+            }
+
+            Console.WriteLine("Enter a line : ");
+
+            String line = Console.ReadLine();
+
+            int numberofwords = countWords(line);
+            Console.WriteLine($"The Lenght or the words number at your line is {numberofwords}");
+
+
+            #endregion
+
+
+            #region Lab 1 
+
+            Problem(1)
+
+            Console.WriteLine(" Enter Two Numbers :");
+            int x = int.Parse(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
+
+            int sum = x + y;
+
+            Console.WriteLine($"The Sum of {x}+{y} = {sum}");
+
+
+
+
+            Problem(2)
+
+            Console.WriteLine(-1 + 4 * 60);
+            Console.WriteLine((35 + 5) % 7);
+            Console.WriteLine(14 + -4 * 6 / 11);
+            Console.WriteLine(2 + 15 / 6 * 1 - 7 % 2);
+
+            int x = 10;
+            int z = (x++) + x;
+
+            Console.WriteLine(z);
+
+
+
+
+            // Problem (3)
+
+            int a = 10, b = 20, c = 30;
+
+            Console.WriteLine(a < b || b > c);
+            Console.WriteLine(a < b && b > c);
+            Console.WriteLine(a <= b || b < c && c > b);
+            Console.WriteLine(a == b || b > c && c > b);
+            Console.WriteLine(a != b || c == c && c > b);
+
+
+            void date(int day, int month, int year)
+            {
+                if ((day > 0 && day <= 31) && (month > 0 && month <= 12) && (year >= 2000 && year <= 2024))
+                {
+
+                    if ((month == 4 || month == 6 || month == 9 || month == 11) && day < 30)
+                    {
+                        Console.WriteLine("Invalid Date (maximum day in this month 30 )");
+                    }
+                    else if ((month == 2) && day > 28)
+                    {
+                        if ((month == 2) && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) && day == 29)
+                        {
+                            Console.WriteLine("valid Date (That's a leap year)");
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Invalid Date (That's Not A leap year , maximum day in this month 28 )");
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Valid Date.");
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Date");
+                }
+            }
+            Console.WriteLine("plzenter year =>2000 =>2024");
+            int Year = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("plzenter month");
+            int Month = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("plzenter day");
+            int Day = int.Parse(Console.ReadLine());
+
+
+            date(Day, Month, Year);
+
+            #endregion
+
+
+
+
+
+        }
+    }
+}
+
+
