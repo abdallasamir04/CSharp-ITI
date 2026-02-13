@@ -40,7 +40,7 @@ Demonstrating Local Functions inside `Main`:
 
 ##  Lab & Exercises
 
-![image](https://hackmd.io/_uploads/Skl1GI3vbg.png)
+<img width="670" height="911" alt="image" src="https://github.com/user-attachments/assets/eba35d11-d06e-4c02-a081-39b06d6c3999" />
 
 
 The project includes a `Lab 1` region containing practical problem-solving:
